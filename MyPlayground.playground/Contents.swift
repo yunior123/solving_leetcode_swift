@@ -403,3 +403,36 @@ func go_permute(_ nums: inout[Int],_ result: inout[[Int]],_ start: Int ){
 
 //print(permute([1,2,3]))
 
+
+func trap(_ height: [Int]) -> Int {
+    var res = 0
+    var left = 0
+    var right = height.count-1
+    var maxLeft = 0
+    var maxRight = 0
+    while left <= right{
+        if height[left] <= height[right]{
+            if height[left] > maxLeft{
+                maxLeft = height[left]
+            }
+            else{
+                res += maxLeft - height[left]
+            }
+            left += 1
+        }
+        else{
+            if height[right] >= maxRight {
+                maxRight = height[right]
+            }
+            else{
+                res += maxRight - height[right]
+            }
+            right -= 1
+        }
+            
+           
+    }
+    return res
+}
+print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+

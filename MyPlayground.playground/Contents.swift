@@ -468,25 +468,53 @@ print(str)
 
 //print(permuteUnique([1,1,3]))
 
-func myPow(_ x: Double, _ n: Int) -> Double {
-    var power = n
-    var base = x
-    if power == 0 {
-        return 1
+//func myPow(_ x: Double, _ n: Int) -> Double {
+//    var power = n
+//    var base = x
+//    if power == 0 {
+//        return 1
+//    }
+//    if power == 1 {
+//        return base
+//    }
+//    if power < 0 {
+//        power = -power
+//        base = 1 / base
+//    }
+//    let tmp = myPow(base, power/2)
+//    if power%2 == 0 {
+//        return tmp * tmp
+//    }
+//    return tmp * tmp * base
+//   }
+//print(myPow(2.0, -2))
+//print(myPow(2.0, 10))
+//print(myPow(1.0, 10))
+
+
+func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+    var result: [[Int]] = []
+    var copiedCandidates = candidates
+    copiedCandidates.sort()
+    combinationSumRecursive([Int](), copiedCandidates, target, &result, 0)
+    return result
+  }
+
+func combinationSumRecursive(_ list: [Int], _ candidates: [Int], _ target: Int, _ result: inout [[Int]], _ index: Int) {
+    if target == 0 {
+        result.append(list)
+        return
     }
-    if power == 1 {
-        return base
+    for i in index..<candidates.count {
+        let newTarget: Int = target - candidates[i]
+        if newTarget<0 {
+            break
+        }
+        var copiedList: [Int] = Array<Int>(list)
+        copiedList.append(candidates[i])
+        combinationSumRecursive(copiedList, candidates, newTarget, &result, i)
     }
-    if power < 0 {
-        power = -power
-        base = 1 / base
-    }
-    let tmp = myPow(base, power/2)
-    if power%2 == 0 {
-        return tmp * tmp
-    }
-    return tmp * tmp * base
-   }
-print(myPow(2.0, -2))
-print(myPow(2.0, 10))
-print(myPow(1.0, 10))
+  }
+//print(combinationSum([2,3,6,7], 7))
+print(combinationSum([2,7,6,3,5,1],
+                       9))

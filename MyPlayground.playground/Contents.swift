@@ -381,25 +381,25 @@ func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double{
 
 //print(findMedianSortedArrays([1,2,3,4], [5,6,7,8]))
 
-
-func permute(_ nums: [Int]) -> [[Int]] {
-    var result:[[Int]]=[]
-    var numbers = nums
-    go_permute(&numbers, &result, 0)
-    return result
-        
-}
-func go_permute(_ nums: inout[Int],_ result: inout[[Int]],_ start: Int ){
-    if nums.count<=start {
-        result.append(nums)
-        return
-    }
-    for i in start..<nums.count {
-        nums.swapAt(i, start)
-        go_permute(&nums, &result, start+1)
-        nums.swapAt(i, start)
-    }
-}
+//
+//func permute(_ nums: [Int]) -> [[Int]] {
+//    var result:[[Int]]=[]
+//    var numbers = nums
+//    go_permute(&numbers, &result, 0)
+//    return result
+//
+//}
+//func go_permute(_ nums: inout[Int],_ result: inout[[Int]],_ start: Int ){
+//    if nums.count<=start {
+//        result.append(nums)
+//        return
+//    }
+//    for i in start..<nums.count {
+//        nums.swapAt(i, start)
+//        go_permute(&nums, &result, start+1)
+//        nums.swapAt(i, start)
+//    }
+//}
 
 //print(permute([1,2,3]))
 
@@ -434,5 +434,37 @@ func trap(_ height: [Int]) -> Int {
     }
     return res
 }
-print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+//print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+
+func permuteUnique(_ nums: [Int]) -> [[Int]] {
+    var result:[[Int]]=[]
+    var uniques: Set = Set<String>()
+    var numbers = nums
+    go_permute_unique(&numbers, &result, 0, &uniques)
+    return result
+        
+}
+func go_permute_unique(_ nums: inout[Int],_ result: inout[[Int]],_ start: Int, _  uniques: inout Set<String>){
+    if nums.count<=start {
+        var string: String = ""
+        for i in nums {
+            string+="\(i)"
+        }
+        if !(uniques.contains(string)) {
+            uniques.insert(string)
+        }else{
+            return
+        }
+        result.append(nums)
+        return
+    }
+   
+    for i in start..<nums.count {
+        nums.swapAt(i, start)
+        go_permute_unique(&nums, &result, start+1, &uniques)
+        nums.swapAt(i, start)
+    }
+}
+
+print(permuteUnique([1,1,3]))
 

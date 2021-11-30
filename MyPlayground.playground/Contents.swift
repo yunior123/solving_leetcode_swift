@@ -492,29 +492,89 @@ print(str)
 //print(myPow(1.0, 10))
 
 
-func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
-    var result: [[Int]] = []
-    var copiedCandidates = candidates
-    copiedCandidates.sort()
-    combinationSumRecursive([Int](), copiedCandidates, target, &result, 0)
-    return result
-  }
+//func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+//    var result: [[Int]] = []
+//    var copiedCandidates = candidates
+//    copiedCandidates.sort()
+//    combinationSumRecursive([Int](), copiedCandidates, target, &result, 0)
+//    return result
+//  }
+//
+//func combinationSumRecursive(_ list: [Int], _ candidates: [Int], _ target: Int, _ result: inout [[Int]], _ index: Int) {
+//    if target == 0 {
+//        result.append(list)
+//        return
+//    }
+//    for i in index..<candidates.count {
+//        let newTarget: Int = target - candidates[i]
+//        if newTarget<0 {
+//            break
+//        }
+//        var copiedList: [Int] = Array<Int>(list)
+//        copiedList.append(candidates[i])
+//        combinationSumRecursive(copiedList, candidates, newTarget, &result, i)
+//    }
+//  }
 
-func combinationSumRecursive(_ list: [Int], _ candidates: [Int], _ target: Int, _ result: inout [[Int]], _ index: Int) {
-    if target == 0 {
-        result.append(list)
-        return
+//func combinationSum2(_ candidates: [Int], _ target: Int) -> [[Int]] {
+//    var result: [[Int]] = []
+//    var copiedCandidates = candidates
+//    copiedCandidates.sort()
+//    combinationSumRecursive2([Int](), copiedCandidates, target, &result, 0)
+//    return result
+//  }
+//
+//func combinationSumRecursive2(_ list: [Int], _ candidates: [Int], _ target: Int, _ result: inout [[Int]], _ index: Int) {
+//    if target == 0 {
+//        result.append(list)
+//        return
+//    }
+//    var ii = index - 1
+//    for i in index..<candidates.count {
+//        if ii >= i {
+//            continue
+//        }
+//        let newTarget: Int = target - candidates[i]
+//        if newTarget<0 {
+//            break
+//        }
+//        var copiedList: [Int] = Array<Int>(list)
+//        copiedList.append(candidates[i])
+//        combinationSumRecursive2(copiedList, candidates, newTarget, &result, i + 1)
+//        ii = i
+//        while ii+1 < candidates.count && candidates[ii+1] == candidates[ii] {
+//            ii += 1
+//        }
+//    }
+//  }
+////print(combinationSum([2,3,6,7], 7))
+////print(combinationSum([2,7,6,3,5,1],
+//       //                9))
+//print(combinationSum2([10,1,2,7,6,1,5],
+//                       8))   //[[1,1,6],[1,2,5],[1,7],[2,6]]
+
+
+func jump(_ nums: [Int]) -> Int {
+    if nums.count == 1 {
+        return 0
     }
-    for i in index..<candidates.count {
-        let newTarget: Int = target - candidates[i]
-        if newTarget<0 {
-            break
+    var needChoose = 0
+    var canReach = 0
+    var step = 0
+    for i in 0..<nums.count {
+        let x = nums[i]
+        if i+x > canReach {
+            canReach = i + x
+            if canReach >= nums.count-1 {
+                return step + 1
+            }
         }
-        var copiedList: [Int] = Array<Int>(list)
-        copiedList.append(candidates[i])
-        combinationSumRecursive(copiedList, candidates, newTarget, &result, i)
+        if i == needChoose {
+            needChoose = canReach
+            step += 1
+        }
     }
-  }
-//print(combinationSum([2,3,6,7], 7))
-print(combinationSum([2,7,6,3,5,1],
-                       9))
+    return step
+}
+print(jump([2,3,1,1,4]))//2
+print(jump([2,1,1,1,4]))//2

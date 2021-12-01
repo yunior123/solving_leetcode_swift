@@ -631,31 +631,57 @@ print(str)
 //    }
 //    return false
 //   }
-extension Character {
-    var isValid: Bool {
-        return isLetter || isNumber
+//extension Character {
+//    var isValid: Bool {
+//        return isLetter || isNumber
+//    }
+//}
+//func isPalindrome(_ s: String) -> Bool {
+//        var i = 0, j = s.count - 1
+//        let elements = Array(s.lowercased())
+//        while i < j {
+//            while !elements[i].isValid && i < j {
+//                i += 1
+//            }
+//
+//            while !elements[j].isValid && i < j {
+//                j -= 1
+//            }
+//
+//            if elements[i] != elements[j] {
+//                return false
+//            } else {
+//                i += 1
+//                j -= 1
+//            }
+//        }
+//
+//        return true
+//    }
+//print(isPalindrome("A man, a plan, a canal: Panama"))
+
+
+func combine(_ n: Int, _ k: Int) -> [[Int]] {
+    var numbers: [Int] = []
+    var result: [[Int]] = []
+    combineFn(&numbers, &result, k, 1, n)
+    return result
+}
+func combineFn(_ numbers: inout [Int],_ result: inout [[Int]], _ k: Int, _ index: Int, _ n: Int) {
+    if numbers.count ==  k {
+        result.append(Array(numbers))
+        return
+    }
+    for i in index..<n+1 {
+        numbers.append(i)
+        combineFn(&numbers, &result, k, i+1, n)
+        numbers.popLast()
     }
 }
-func isPalindrome(_ s: String) -> Bool {
-        var i = 0, j = s.count - 1
-        let elements = Array(s.lowercased())
-        while i < j {
-            while !elements[i].isValid && i < j {
-                i += 1
-            }
-            
-            while !elements[j].isValid && i < j {
-                j -= 1
-            }
-            
-            if elements[i] != elements[j] {
-                return false
-            } else {
-                i += 1
-                j -= 1
-            }
-        }
-        
-        return true
-    }
-print(isPalindrome("A man, a plan, a canal: Panama"))
+print(combine(4,2))
+//[2,4],
+// [3,4],
+// [2,3],
+// [1,2],
+// [1,3],
+// [1,4],

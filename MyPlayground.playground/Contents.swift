@@ -553,28 +553,109 @@ print(str)
 //print(combinationSum2([10,1,2,7,6,1,5],
 //                       8))   //[[1,1,6],[1,2,5],[1,7],[2,6]]
 
-
-func jump(_ nums: [Int]) -> Int {
-    if nums.count == 1 {
-        return 0
+//
+//func jump(_ nums: [Int]) -> Int {
+//    if nums.count == 1 {
+//        return 0
+//    }
+//    var needChoose = 0
+//    var canReach = 0
+//    var step = 0
+//    for i in 0..<nums.count {
+//        let x = nums[i]
+//        if i+x > canReach {
+//            canReach = i + x
+//            if canReach >= nums.count-1 {
+//                return step + 1
+//            }
+//        }
+//        if i == needChoose {
+//            needChoose = canReach
+//            step += 1
+//        }
+//    }
+//    return step
+//}
+//print(jump([2,3,1,1,4]))//2
+//print(jump([2,1,1,1,4]))//2
+//
+//extension String {
+//
+//    var length: Int {
+//        return count
+//    }
+//
+//    subscript (i: Int) -> String {
+//        return self[i ..< i + 1]
+//    }
+//
+//    func substring(fromIndex: Int) -> String {
+//        return self[min(fromIndex, length) ..< length]
+//    }
+//
+//    func substring(toIndex: Int) -> String {
+//        return self[0 ..< max(0, toIndex)]
+//    }
+//    func slice(fromIndex: Int, toIndex: Int) -> String {
+//        return self[min(fromIndex, length) ..< max(0, toIndex)]
+//    }
+//
+//    subscript (r: Range<Int>) -> String {
+//        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
+//                                            upper: min(length, max(0, r.upperBound))))
+//        let start = index(startIndex, offsetBy: range.lowerBound)
+//        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+//        return String(self[start ..< end])
+//    }
+//}
+//func isPalindrome(_ s: String) -> Bool {
+//
+//    var array =  Array(s.filter {!$0.isWhitespace}.lowercased())
+//    array.removeAll { (c) -> Bool in
+//        !(c.isLetter || c.isNumber)
+//    }
+//    return checkIsPalindrome(array)
+//}
+//
+//func checkIsPalindrome(_ s: [Character]) -> Bool {
+//    if s.count == 0 {
+//       return true
+//    }
+//    if s.count == 1 {
+//        return true
+//    }
+//
+//    if s[0]==s[s.count-1]{
+//        let copiedStr = Array(s[1..<s.count-1])
+//        return checkIsPalindrome(copiedStr)
+//    }
+//    return false
+//   }
+extension Character {
+    var isValid: Bool {
+        return isLetter || isNumber
     }
-    var needChoose = 0
-    var canReach = 0
-    var step = 0
-    for i in 0..<nums.count {
-        let x = nums[i]
-        if i+x > canReach {
-            canReach = i + x
-            if canReach >= nums.count-1 {
-                return step + 1
+}
+func isPalindrome(_ s: String) -> Bool {
+        var i = 0, j = s.count - 1
+        let elements = Array(s.lowercased())
+        while i < j {
+            while !elements[i].isValid && i < j {
+                i += 1
+            }
+            
+            while !elements[j].isValid && i < j {
+                j -= 1
+            }
+            
+            if elements[i] != elements[j] {
+                return false
+            } else {
+                i += 1
+                j -= 1
             }
         }
-        if i == needChoose {
-            needChoose = canReach
-            step += 1
-        }
+        
+        return true
     }
-    return step
-}
-print(jump([2,3,1,1,4]))//2
-print(jump([2,1,1,1,4]))//2
+print(isPalindrome("A man, a plan, a canal: Panama"))

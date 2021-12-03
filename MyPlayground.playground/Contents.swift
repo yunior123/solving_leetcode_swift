@@ -661,27 +661,40 @@ print(str)
 //print(isPalindrome("A man, a plan, a canal: Panama"))
 
 
-func combine(_ n: Int, _ k: Int) -> [[Int]] {
-    var numbers: [Int] = []
-    var result: [[Int]] = []
-    combineFn(&numbers, &result, k, 1, n)
-    return result
-}
-func combineFn(_ numbers: inout [Int],_ result: inout [[Int]], _ k: Int, _ index: Int, _ n: Int) {
-    if numbers.count ==  k {
-        result.append(Array(numbers))
-        return
-    }
-    for i in index..<n+1 {
-        numbers.append(i)
-        combineFn(&numbers, &result, k, i+1, n)
-        numbers.popLast()
-    }
-}
-print(combine(4,2))
+//func combine(_ n: Int, _ k: Int) -> [[Int]] {
+//    var numbers: [Int] = []
+//    var result: [[Int]] = []
+//    combineFn(&numbers, &result, k, 1, n)
+//    return result
+//}
+//func combineFn(_ numbers: inout [Int],_ result: inout [[Int]], _ k: Int, _ index: Int, _ n: Int) {
+//    if numbers.count ==  k {
+//        result.append(Array(numbers))
+//        return
+//    }
+//    for i in index..<n+1 {
+//        numbers.append(i)
+//        combineFn(&numbers, &result, k, i+1, n)
+//        numbers.popLast()
+//    }
+//}
+//print(combine(4,2))
 //[2,4],
 // [3,4],
 // [2,3],
 // [1,2],
 // [1,3],
 // [1,4],
+
+//func climbStairs(_ n: Int) -> Int {
+//    var first = 1
+//    var second = 1
+//    for _ in 0..<n-1 {
+//        let storedVal = first
+//        first = second + storedVal
+//        second = storedVal
+//    }
+//    return first
+//  }
+//print(climbStairs(2))
+//print(climbStairs(3))

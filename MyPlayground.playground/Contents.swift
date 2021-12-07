@@ -698,3 +698,69 @@ print(str)
 //  }
 //print(climbStairs(2))
 //print(climbStairs(3))
+
+
+
+//Write a program to solve a Sudoku puzzle by filling the empty cells.
+//
+//A sudoku solution must satisfy all of the following rules:
+//
+//Each of the digits 1-9 must occur exactly once in each row.
+//Each of the digits 1-9 must occur exactly once in each column.
+//Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+//The '.' character indicates empty cells.
+//func solveSudoku(_ board: inout [[Character]]) {
+//
+//}
+
+//func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+//
+//    var i = 0
+//    var j = 0
+//    var copiedNums1 = nums1
+//    var copiedNums2 = nums2
+//    var zeroCount = n - 1
+//    while zeroCount>=0 {
+//        if copiedNums1.last==0 {
+//            copiedNums1.removeLast()
+//        }
+//        else if copiedNums2.last==0{
+//            copiedNums2.removeLast()
+//        }
+//
+//        zeroCount-=1
+//    }
+//    nums1 = []
+//
+//    while i<copiedNums1.count && j<copiedNums2.count {
+//        if copiedNums1[i]<copiedNums2[j] {
+//            let num = copiedNums1[i]
+//            nums1.append(num)
+//            i+=1
+//        }
+//        else{
+//            let num = copiedNums2[j]
+//            nums1.append(num)
+//            j+=1
+//        }
+//
+//    }
+//    while i<copiedNums1.count {
+//        let num = copiedNums1[i]
+//        nums1.append(num)
+//        i+=1
+//
+//    }
+//    while j<copiedNums2.count {
+//        let num = copiedNums2[j]
+//        nums1.append(num)
+//        j+=1
+//
+//    }
+//
+//  }
+////var nums1 = [1,2,3,0,0,0]
+////merge(&nums1, 3, [2,5,6], 3)
+//var nums1 = [-1,0,0,3,3,3,0,0,0]
+//merge(&nums1, 6, [1,2,2], 3)
+//print(nums1)//[1,2,2,3,5,6] [-1,0,0,1,2,2,3,3,3]

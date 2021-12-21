@@ -764,3 +764,56 @@ print(str)
 //var nums1 = [-1,0,0,3,3,3,0,0,0]
 //merge(&nums1, 6, [1,2,2], 3)
 //print(nums1)//[1,2,2,3,5,6] [-1,0,0,1,2,2,3,3,3]
+
+//func singleNumber(_ nums: [Int]) -> Int {
+//    var map : [Int: Bool] = [:]
+//    for i in nums {
+//        if map[i] != nil {
+//            map.removeValue(forKey: i)
+//        }else{
+//            map[i]=true
+//        }
+//    }
+//    //print(map)
+//    return map.keys.first!
+//  }
+//let nums = [2,2,1]
+//print(singleNumber(nums))//1
+//let nums1 = [4,1,2,1,2]
+//print(singleNumber(nums1))//4
+//let nums2 = [1]
+//print(singleNumber(nums2))//1
+
+
+class MedianFinder {
+    var list: [Int] = []
+
+    init() {
+        
+    }
+    
+    func addNum(_ num: Int) {
+        list.append(num)
+    }
+    
+    func findMedian() -> Double {
+        list.sort()
+        let length = list.count
+        if length % 2 == 0 {
+            let sum = Double((list[(length/2)-1]+list[length/2]))
+            return sum/Double(2)
+        }
+        else{
+            return Double(list[length / 2])
+        }
+        
+    }
+}
+let test = MedianFinder()
+test.addNum(4)
+test.addNum(5)
+test.addNum(6)
+test.addNum(7)
+test.addNum(8)
+test.addNum(9)
+print(test.findMedian())

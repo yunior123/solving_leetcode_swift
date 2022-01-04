@@ -785,35 +785,60 @@ print(str)
 //print(singleNumber(nums2))//1
 
 
-class MedianFinder {
-    var list: [Int] = []
+//class MedianFinder {
+//    var list: [Int] = []
+//
+//    init() {
+//
+//    }
+//
+//    func addNum(_ num: Int) {
+//        list.append(num)
+//    }
+//
+//    func findMedian() -> Double {
+//        list.sort()
+//        let length = list.count
+//        if length % 2 == 0 {
+//            let sum = Double((list[(length/2)-1]+list[length/2]))
+//            return sum/Double(2)
+//        }
+//        else{
+//            return Double(list[length / 2])
+//        }
+//
+//    }
+//}
+//let test = MedianFinder()
+//test.addNum(4)
+//test.addNum(5)
+//test.addNum(6)
+//test.addNum(7)
+//test.addNum(8)
+//test.addNum(9)
+//print(test.findMedian())
 
-    init() {
-        
-    }
-    
-    func addNum(_ num: Int) {
-        list.append(num)
-    }
-    
-    func findMedian() -> Double {
-        list.sort()
-        let length = list.count
-        if length % 2 == 0 {
-            let sum = Double((list[(length/2)-1]+list[length/2]))
-            return sum/Double(2)
-        }
-        else{
-            return Double(list[length / 2])
-        }
-        
-    }
-}
-let test = MedianFinder()
-test.addNum(4)
-test.addNum(5)
-test.addNum(6)
-test.addNum(7)
-test.addNum(8)
-test.addNum(9)
-print(test.findMedian())
+//func generate(_ numRows: Int) -> [[Int]] {
+//    var result: [[Int]] = []
+//    
+//    for i in 0..<numRows {
+//        var row: [Int] = []
+//        for j in 0..<i+1 {
+//           
+//            if j==0 || j==i {
+//                row.append(1)
+//            }else{
+//                let previousRow: [Int] = result[i-1]
+//                let first = previousRow[j-1]
+//                let second = previousRow[j]
+//                row.append(first+second)
+//            }
+//        }
+//     
+//        result.append(row)
+//    }
+//    
+//    return result
+//    
+//   }
+//print(generate(5))

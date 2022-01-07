@@ -844,28 +844,30 @@ print(str)
 //print(generate(5))
 
  // Definition for singly-linked list.
-  public class ListNode {
-      public var val: Int
-      public var next: ListNode?
-      public init() { self.val = 0; self.next = nil; }
-      public init(_ val: Int) { self.val = val; self.next = nil; }
-      public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
-  }
-
-class Solution {
-    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
-        var newHead: ListNode? = ListNode()
-        var uniqueNumsMap:  [Int: Bool]=[:]
-        while head?.val != nil {
-            if uniqueNumsMap[head!.val] != nil {
-                continue
-            }
-            newHead!.next = ListNode(head!.val)
-            newHead = newHead!.next
-            uniqueNumsMap[head!.val]=true
-            
-        }
-        return newHead
-        
-    }
-}
+//  public class ListNode {
+//      public var val: Int
+//      public var next: ListNode?
+//      public init() { self.val = 0; self.next = nil; }
+//      public init(_ val: Int) { self.val = val; self.next = nil; }
+//      public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
+//  }
+//
+//class Solution {
+//    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
+//        guard let head = head else {
+//            return nil
+//        }
+//        var newHead = head
+//                
+//        while newHead.next != nil {
+//            if newHead.next!.val == newHead.val {
+//                newHead.next = newHead.next!.next
+//            } else {
+//                newHead = newHead.next!
+//            }
+//        }
+//                
+//        return head
+//        
+//    }
+//}

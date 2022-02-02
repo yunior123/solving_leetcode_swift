@@ -871,3 +871,29 @@ print(str)
 //        
 //    }
 //}
+func fizzBuzz(_ n: Int) -> [String] {
+    var result: [String]=[]
+    fizzBuzzRecursive(1, n, &result)
+    return result;
+}
+
+func fizzBuzzRecursive(_ start: Int,_ end:Int,_ answers: inout[String]) {
+    if (start % 15 == 0) {
+        answers.append("FizzBuzz");
+    } else if (start % 5 == 0) {
+        answers.append("Buzz")
+    } else if (start % 3 == 0) {
+        answers.append("Fizz")
+    }else{
+        answers.append(String(start))
+    }
+    if (start < end) {
+        fizzBuzzRecursive(
+                start + 1,
+                end,
+                &answers
+                );
+    }
+}
+print(fizzBuzz(3))
+print(fizzBuzz(15))

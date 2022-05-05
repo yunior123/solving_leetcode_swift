@@ -871,29 +871,82 @@ print(str)
 //        
 //    }
 //}
-func fizzBuzz(_ n: Int) -> [String] {
-    var result: [String]=[]
-    fizzBuzzRecursive(1, n, &result)
-    return result;
+//func fizzBuzz(_ n: Int) -> [String] {
+//    var result: [String]=[]
+//    fizzBuzzRecursive(1, n, &result)
+//    return result;
+//}
+//
+//func fizzBuzzRecursive(_ start: Int,_ end:Int,_ answers: inout[String]) {
+//    if (start % 15 == 0) {
+//        answers.append("FizzBuzz");
+//    } else if (start % 5 == 0) {
+//        answers.append("Buzz")
+//    } else if (start % 3 == 0) {
+//        answers.append("Fizz")
+//    }else{
+//        answers.append(String(start))
+//    }
+//    if (start < end) {
+//        fizzBuzzRecursive(
+//                start + 1,
+//                end,
+//                &answers
+//                );
+//    }
+//}
+//print(fizzBuzz(3))
+//print(fizzBuzz(15))
+
+func diagonalDifference(arr: [[Int]]) -> Int {
+    let count = arr.count
+    if  count <= 0{
+        return 0
+    }
+
+    let matrixLength = arr.first!.count
+
+    var sum1 = 0;
+    var sum2 = 0;
+    
+    var i = 0
+    for row in arr {
+        sum1 += row[i]
+        sum2 += row[matrixLength-i-1]
+        i += 1
+    }
+
+    return abs(sum2-sum1)
 }
 
-func fizzBuzzRecursive(_ start: Int,_ end:Int,_ answers: inout[String]) {
-    if (start % 15 == 0) {
-        answers.append("FizzBuzz");
-    } else if (start % 5 == 0) {
-        answers.append("Buzz")
-    } else if (start % 3 == 0) {
-        answers.append("Fizz")
-    }else{
-        answers.append(String(start))
-    }
-    if (start < end) {
-        fizzBuzzRecursive(
-                start + 1,
-                end,
-                &answers
-                );
-    }
-}
-print(fizzBuzz(3))
-print(fizzBuzz(15))
+let testArray1 = [
+   
+       [1, 2, 3],
+       [4, 5, 6],
+       [9, 8, 9]
+     ];
+let testArray2 = [
+     
+       [1, 2, 3],
+       [4, 5, 6],
+       [9, 8, 8]
+     ];
+let testArray3 = [
+     
+       [1, 2, 3, 5],
+       [4, 5, 6, 7],
+       [9, 8, 9, 1],
+       [2, 3, 4, 5],
+     ];
+let expectedResult1 = [2, 3, 1];
+
+var i = 0
+
+
+for testArray in [testArray1, testArray2, testArray3] {
+    let result = diagonalDifference(arr:testArray);
+       print(result);
+      
+       i+=1;
+     }
+

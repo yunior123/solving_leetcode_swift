@@ -950,3 +950,60 @@ print(str)
 //       i+=1;
 //     }
 //
+
+//
+//func simpleArraySum(ar: [Int]) -> Int {
+//    if ar.count == 0 {
+//        return 0
+//    }
+//    var sum = 0
+//    for item in ar {
+//        sum += item
+//    }
+//    return sum
+//}
+
+
+//func compareTriplets(a: [Int], b: [Int]) -> [Int] {
+//    var i = 0;
+//     var j = 0;
+//
+//     var result = [0, 0];
+//
+//     while (i < a.count && j < b.count) {
+//       if (a[i] == b[j]) {
+//         i+=1;
+//         j+=1;
+//         continue;
+//       }
+//       if (a[i] > b[j]) {
+//         result[0]+=1;
+//       } else {
+//         result[1]+=1;
+//       }
+//         i+=1;
+//         j+=1;
+//     }
+//     return result;
+//
+//}
+
+
+//func miniMaxSum(arr: [Int]) -> Void {
+//    if (arr.isEmpty) {
+//       return;
+//     }
+//    var mutableArray: [Int] = arr
+//    mutableArray.sort();
+//    let maxArray = mutableArray[1..<mutableArray.count];
+//    let minArray = mutableArray[0..<mutableArray.count-1];
+//    
+//    let sumMaxArray = maxArray.reduce(0, {a, b in return a + b})
+//    let sumMinArray = minArray.reduce(0, {a, b in return a + b})
+//     print("\(sumMinArray) \(sumMaxArray)");
+//
+//}
+//miniMaxSum(arr: [1,2,3,4,5])
+
+
+

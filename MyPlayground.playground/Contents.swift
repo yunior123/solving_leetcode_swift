@@ -1,7 +1,7 @@
 import UIKit
 var str = "Hello, playground"
 print(str)
-
+import Foundation
 //func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
 //    // O(m+n)
 //    var map : [Int: Bool] = [:]
@@ -1004,6 +1004,16 @@ print(str)
 //
 //}
 //miniMaxSum(arr: [1,2,3,4,5])
-
-
-
+//
+//func extraLongFactorials(n: Int) -> Void {
+//    let result = recursiveExtraLongFactorials(n:Decimal(n));
+//    print(result);
+//}
+//
+//func recursiveExtraLongFactorials(n : Decimal) -> Decimal{
+//    if (n == 1) {
+//        return Decimal(1);
+//    }
+//    return n * recursiveExtraLongFactorials(n:n - 1);
+//}
+//extraLongFactorials(n: 45)

@@ -843,7 +843,7 @@ import Foundation
 //   }
 //print(generate(5))
 
- // Definition for singly-linked list.
+// Definition for singly-linked list.
 //  public class ListNode {
 //      public var val: Int
 //      public var next: ListNode?
@@ -1017,3 +1017,323 @@ import Foundation
 //    return n * recursiveExtraLongFactorials(n:n - 1);
 //}
 //extraLongFactorials(n: 45)
+
+
+//func plusMinus( arr: [Int]) ->Void {
+//  var positiveNumbersCount = 0;
+//  var negativeNumbersCount = 0;
+//  var zeroNumbersCount = 0;
+//
+//  for i in (0..<arr.count) {
+//      let positive = arr[i] > 0;
+//      let negative = arr[i] < 0;
+//      let zero = arr[i] == 0;
+//      if (positive) {
+//          positiveNumbersCount += 1;
+//      } else if (negative) {
+//          negativeNumbersCount += 1;
+//      } else if (zero) {
+//          zeroNumbersCount += 1;
+//      }
+//  }
+//
+//  let  positiveRatio = Double(positiveNumbersCount) / Double(arr.count);
+//  let  negativeRatio = Double(negativeNumbersCount) / Double(arr.count);
+//  let  zeroRatio = Double(zeroNumbersCount) / Double(arr.count);
+//
+//  print(String(format: "%.6f", positiveRatio))
+//  print(String(format: "%.6f", negativeRatio))
+//  print(String(format: "%.6f", zeroRatio))
+//
+//
+//}
+//plusMinus(arr: [1,2,0,-1,-2])
+
+
+//func staircase(n: Int) -> Void {
+//
+//    for element in (0..<n).reversed() {
+//        var result: [String] = []
+//        for rowIndex in 0 ..< n {
+//            if rowIndex < element {
+//                result.append(" ")
+//            }
+//            else {
+//                result.append("#")
+//            }
+//
+//        }
+//        print(result.joined())
+//    }
+//
+//}
+//
+//staircase(n: 4)
+//func fizzBuzz(n: Int) -> Void {
+//    fizzBuzzRecursive(n: n, start: 1)
+//}
+//func fizzBuzzRecursive(n: Int, start: Int) -> Void {
+//
+//    if start > n {
+//        return
+//    }
+//
+//
+//    if (start % 15 == 0) {
+//        print("FizzBuzz")
+//    }else if(start % 3 == 0){
+//        print("Fizz")
+//    }else if(start % 5 == 0){
+//        print("Buzz")
+//    }else{
+//        print(start)
+//    }
+//
+//    return fizzBuzzRecursive(n: n, start: start + 1)
+//}
+//func fizzBuzzLoop(n: Int) -> Void {
+//
+//
+//    var start = 1
+//
+//    while start <= n {
+//        if (start % 15 == 0) {
+//            print("FizzBuzz")
+//        }else if(start % 3 == 0){
+//            print("Fizz")
+//        }else if(start % 5 == 0){
+//            print("Buzz")
+//        }else{
+//            print(start)
+//        }
+//        start += 1
+//    }
+//}
+//
+//
+//fizzBuzzLoop(n: 230)
+
+//func birthdayCakeCandles1(candles: [Int]) -> Int {
+//    var maxValue = 0
+//    var numbsCountMap:[Int:Int] = [:]
+//
+//    for number in candles {
+//        let keyExists = numbsCountMap[number]
+//
+//        if let _ = keyExists {
+//            numbsCountMap[number]! += 1;
+//        } else {
+//            numbsCountMap[number] = 1;
+//        }
+//        maxValue = max(maxValue, number);
+//    }
+//
+//    return numbsCountMap[maxValue]!;
+//}
+//
+//let result = birthdayCakeCandles1(candles:[3,1,1,3,2])
+//print(result)
+//func timeConversion(s: String) -> String {
+//    let time = s.components(separatedBy: ":") // ["12", "00", "00AM"]
+//    let hour = time[0] // "12"
+//    let minute = time[1] // "00"
+//    let second = time[2] // "00AM"
+//
+//    let ampm = second.dropFirst(2) // "AM"
+//
+//    print(ampm)
+//
+//    if ampm == "AM" && hour == "12" {
+//        return "00:\(minute):\(second.dropLast(2))"
+//    } else if ampm == "PM" && hour != "12" {
+//        return "\(Int(hour)! + 12):\(minute):\(second.dropLast(2))"
+//    } else {
+//        return "\(hour):\(minute):\(second.dropLast(2))"
+//    }
+//}
+//
+//let result = timeConversion(s: "07:05:45PM")
+//let result1 = timeConversion(s: "02:01:45AM")
+//print(result)
+//print(result1)
+
+
+//func aVeryBigSum(ar: [Int]) -> Int {
+//  var sum = 0;
+//  for number in ar {
+//    sum += number;
+//  }
+//  return sum;
+//}
+//
+//print(aVeryBigSum(ar: [5,
+//                       1000000001 ,1000000002 ,1000000003 ,1000000004, 1000000005]))
+
+//
+//
+//func findPermutations(values: [Int]) -> [[Int]] {
+//  var result: [[Int]] = [];
+//  permute(list: values,start:  0,result:  &result);
+//  return result;
+//}
+//
+//func permute(
+//list: [Int],
+//start: Int,
+//result: inout[[Int]]) -> Void {
+//
+//  if (start == list.count) {
+//    result.append(list);
+//    return;
+//  }
+//    var i = start
+//    for _ in list {
+//       var permutation = Array(list);
+//        permutation[start] = list[i];
+//        permutation[i] = list[start];
+//        permute(list: permutation,start: start + 1,result: &result);
+//        i += 1
+//    }
+//
+//}
+
+//func runningSum(_ nums: [Int]) -> [Int] {
+//    var result: [Int] = []
+//
+//    var i = 0
+//    for item in nums {
+//        if i == 0 {
+//            result.append(item)
+//        }else{
+//            result.append(item + result[i-1])
+//        }
+//        i += 1
+//
+//    }
+//    return result
+//}
+//
+//print(runningSum([1,2,3,4]))
+//// [1,3,6,10]
+///
+///
+
+//
+//func pivotIndex(_ nums: [Int]) -> Int {
+//    var leftSum = 0
+//     var rightSum = nums.reduce(0, +)
+//
+//     for i in 0..<nums.count {
+//         if leftSum == rightSum - nums[i] {
+//             return i
+//         }
+//         leftSum += nums[i]
+//         rightSum -= nums[i]
+//     }
+//     return -1
+//  }
+//
+//print(pivotIndex([2,1,-1]))
+
+//
+//func isIsomorphic(_ s: String, _ t: String) -> Bool {
+//    if s.count != t.count {
+//        return false
+//    }
+//    var sMap = [Character: Character]()
+//     var tMap = [Character: Character]()
+//
+//     for i in 0..<s.count {
+//         let sChar = s[s.index(s.startIndex, offsetBy: i)]
+//         let tChar = t[t.index(t.startIndex, offsetBy: i)]
+//
+//         if sMap[sChar] == nil {
+//             sMap[sChar] = tChar
+//         } else if sMap[sChar] != tChar {
+//             return false
+//         }
+//
+//         if tMap[tChar] == nil {
+//             tMap[tChar] = sChar
+//         } else if tMap[tChar] != sChar {
+//             return false
+//         }
+//     }
+//     return true
+//   }
+
+
+//
+//func isIsomorphic(_ s: String, _ t: String) -> Bool {
+//    if s.count != t.count {
+//        return false
+//    }
+//    var sT = [Character: Character]()
+//    var tS = [Character: Character]()
+//
+//    var indexS = s.startIndex
+//    var indexT = t.startIndex
+//    for i in 0 ..< s.count {
+//        if i != 0 {
+//            indexS = s.index(after: indexS)
+//            indexT = t.index(after: indexT)
+//        }
+//        let charS = s[indexS]
+//        let charT = t[indexT]
+//
+//        let result = (sT[charS] != nil, tS[charT] != nil)
+//        switch result {
+//        case (true, true):
+//            if sT[charS]! != charT || tS[charT]! != charS {
+//                return false
+//            }
+//        case (true, false):
+//            return false
+//        case (false, true):
+//            return false
+//        case (false, false):
+//            sT[charS] = charT
+//            tS[charT] = charS
+//        }
+//    }
+//
+//    return true
+//
+//}
+//
+//
+//print(isIsomorphic("title", "paper"))
+
+
+
+//func isSubsequence(_ s: String, _ t: String) -> Bool {
+//    if s.count == 0 {
+//        return true
+//    }
+//    if s.count > t.count {
+//        return false
+//    }
+//
+//    let sMap = s.map { String($0) }
+//    let tMap = t.map { String($0) }
+//
+//    var sIterator = 0
+//    var sLetter = sMap[sIterator]
+//
+//    for tLetter in tMap {
+//        if tLetter == sLetter {
+//            sIterator += 1
+//            if sIterator == sMap.count {
+//                return true
+//            } else {
+//                sLetter = sMap[sIterator]
+//            }
+//        }
+//    }
+//
+//    return false
+//}
+
+//print(isSubsequence("ace", "abcde"))
+
+// control + I format code

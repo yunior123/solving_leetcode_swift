@@ -1337,3 +1337,38 @@ import Foundation
 //print(isSubsequence("ace", "abcde"))
 
 // control + I format code
+
+//Input: nums = [1,2,3,4]
+//Output: [1,3,6,10]
+//func runningSum(_ nums: [Int]) -> [Int] {
+//
+//    var resultArray: [Int] = []
+//    var totalSum = 0
+//    for n in nums {
+//        totalSum += n
+//        resultArray.append(totalSum)
+//    }
+//    return  resultArray
+//
+//}
+//
+//print(runningSum([1,2,3,4]))
+
+//func pivotIndex(_ nums: [Int]) -> Int {
+//    var leftSum = 0
+//    var i = 0
+//    while i <= nums.count - 1 {
+//        leftSum += nums[i]
+//        let rightSum = Array(nums[i...]).reduce(0, +)
+//        if leftSum == rightSum {
+//            return i
+//        }
+//        i+=1
+//    }
+//    return -1
+//
+// }
+////print(pivotIndex([1,7,3,6,5,6]))
+////print(pivotIndex([2,1,-1]))
+//
+//print(pivotIndex([1,2,3]))
